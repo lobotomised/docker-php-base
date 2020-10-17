@@ -9,6 +9,8 @@ RUN apk add --update \
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
+RUN composer global require hirak/prestissimo
+
 RUN docker-php-ext-install intl pdo_mysql
 
 COPY php.ini /usr/local/etc/php/conf.d/custom.ini
