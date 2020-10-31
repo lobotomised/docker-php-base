@@ -9,8 +9,6 @@ RUN apk add --update \
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-RUN composer global require hirak/prestissimo
-
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
     && pecl install -o -f redis \
     && rm -rf /tmp/pear \
